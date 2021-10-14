@@ -4,16 +4,17 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import org.springframework.stereotype.Component;
 import org.springframework.util.CollectionUtils;
 
 import com.example.msbogper.dto.BookDTO;
 import com.example.msbogper.jooq.schemabooks.tables.pojos.Book;
 
-
+@Component 
 public class BookMapper {
 	
 	public List<BookDTO> bookPojoToBookDto(List<Book> src){
-		if(CollectionUtils.isEmpty(src)) {
+		if(src == null | CollectionUtils.isEmpty(src)) {
 			return Collections.emptyList();
 		}
 		
